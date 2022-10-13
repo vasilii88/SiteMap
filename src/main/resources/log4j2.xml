@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <File name="DB" fileName="logs/SQL.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+            <Filters>
+                <MarkerFilter marker = "DB_LOG">
+                </MarkerFilter>
+            </Filters>
+        </File>
+        <File name="INFO" fileName="logs/INFO.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+            <Filters>
+                <MarkerFilter marker = "INFO">
+                </MarkerFilter>
+            </Filters>
+        </File>
+        <File name="Exceptions" fileName="logs/exceptions.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %m %ex%n"/>
+            <Filters>
+                <MarkerFilter marker = "EXCEPTIONS">
+                </MarkerFilter>
+            </Filters>
+        </File>
+    </appenders>
+
+    <loggers>
+        <root level="All">
+            <AppenderRef ref="DB"/>
+            <AppenderRef ref="INFO"/>
+            <AppenderRef ref="Exceptions"/>
+        </root>
+    </loggers>
+</configuration>
